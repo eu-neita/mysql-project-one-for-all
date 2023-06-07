@@ -1,4 +1,4 @@
-SELECT Ar.name_artist AS album,
+SELECT Ar.name_artist AS artista,
 	CASE
 		WHEN COUNT(Uf.music_id) >= 5 THEN 'A'
 		WHEN COUNT(Uf.music_id) BETWEEN 3 AND 4 THEN 'B'
