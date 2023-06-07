@@ -2,6 +2,12 @@
 
 DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE IF NOT EXISTS SpotifyClone;
+CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artists` (
+  `artist_id` INT AUTO_INCREMENT,
+  `name_artist` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`artist_id`)
+) engine = InnoDB;
+
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`plans` (
   `plan_id` INT AUTO_INCREMENT,
   `type` VARCHAR(100) NOT NULL,
@@ -18,12 +24,6 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`user` (
   CONSTRAINT PRIMARY KEY (`user_id`),
     FOREIGN KEY (`plan_id`)
     REFERENCES `SpotifyClone`.`plans` (`plan_id`)
-) engine = InnoDB;
-
-CREATE TABLE IF NOT EXISTS `SpotifyClone`.`artists` (
-  `artist_id` INT AUTO_INCREMENT,
-  `name_artist` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`artist_id`)
 ) engine = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`following` (
@@ -78,6 +78,15 @@ CREATE TABLE IF NOT EXISTS `SpotifyClone`.`history_plays` (
     FOREIGN KEY (`music_id`)
     REFERENCES `SpotifyClone`.`musics` (`music_id`))
 engine = InnoDB;
+
+INSERT INTO SpotifyClone.artists (name_artist) VALUES
+	('Beyoncé'),
+	('Queen'),
+	('Elis Regina'),
+	('Baco Exu do Blues'),
+	('Blind Guardian'),
+	('Nina Simone');
+
 INSERT INTO SpotifyClone.plans (type, value) VALUES 
     ("gratuito", '0'), 
     ("familiar", '7.99'), 
@@ -95,14 +104,6 @@ INSERT INTO SpotifyClone.user (name, age, plan_id, plan_date) VALUES
 	('Christopher Alexander', '85', '4', '2019-06-05'),
 	('Judith Butler', '45', '4', '2020-05-13'),
 	('Jorge Amado', '58', '4', '2017-02-17');
-
-INSERT INTO SpotifyClone.artists (name_artist) VALUES
-	('Beyoncé'),
-	('Queen'),
-	('Elis Regina'),
-	('Baco Exu do Blues'),
-	('Blind Guardian'),
-	('Nina Simone');
 
 INSERT INTO SpotifyClone.following (user_id, artist_id) VALUES
 	('1', '1'),

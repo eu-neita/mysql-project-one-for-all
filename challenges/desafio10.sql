@@ -1,13 +1,13 @@
 CREATE TABLE IF NOT EXISTS `SpotifyClone`.`user_fav_musics` (
-  `user_id` INT NOT NULL,
-  `music_id` INT,
-  FOREIGN KEY (`user_id`) REFERENCES `SpotifyClone`.`user` (`user_id`),
-  FOREIGN KEY (`music_id`) REFERENCES `SpotifyClone`.`musics` (`music_id`),
-  UNIQUE (`user_id`, `music_id`)
+    `user_id` INT NOT NULL,
+    `music_id` INT,
+    FOREIGN KEY (`user_id`) REFERENCES `SpotifyClone`.`user` (`user_id`),
+    FOREIGN KEY (`music_id`) REFERENCES `SpotifyClone`.`musics` (`music_id`),
+    UNIQUE (`user_id`, `music_id`)
 ) ENGINE = InnoDB;
 
-    INSERT INTO `SpotifyClone`.`user_fav_musics` (user_id, music_id)
-    VALUES
+INSERT INTO `SpotifyClone`.`user_fav_musics` (user_id, music_id)
+VALUES
     ('1', '3'),
     ('1', '6'),
     ('1', '10'),
